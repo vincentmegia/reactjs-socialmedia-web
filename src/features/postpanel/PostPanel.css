@@ -1,0 +1,9 @@
+.postpanelliststyle {
+    list-style: none !important;
+    padding: 1rem;
+}
+
+.postpanellistitem {
+    margin-top: 10px;
+    min-height: 7vh;
+}

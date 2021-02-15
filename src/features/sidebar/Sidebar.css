@@ -1,0 +1,8 @@
+.sidebarlist {
+    list-style: none !important;
+    padding: 1rem;
+}
+
+.sidebarlistitem {
+    min-height: 7vh;
+}
