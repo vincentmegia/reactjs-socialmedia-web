@@ -1,7 +1,20 @@
+import { memo, PropsWithChildren } from 'react';
 import { Button } from 'react-bootstrap'
+import DebugRender from '../tools/DebugRender';
 import './MenuSidebar.css'
+import { IMenuSidebarProps } from './widgetsidebar-types';
 
-const Sidebar = () => {
+const equals = (prevProps: Readonly<PropsWithChildren<IMenuSidebarProps>>, 
+    nextProps: Readonly<PropsWithChildren<IMenuSidebarProps>>) => {
+    return prevProps.controlid === nextProps.controlid;
+  }
+
+const MenuSidebar = ({controlid, onMenuCallback}: IMenuSidebarProps) => {
+    const onClick = (e: any) => {
+        // debugger;
+        onMenuCallback("sdfsd");
+    }
+
     return (
         <div id="menu-sidebar" style={{ backgroundColor: 'red' }}>
             <ul className="sidebarlist">
@@ -30,11 +43,12 @@ const Sidebar = () => {
                     <i className="fas fa-ellipsis-h fa-2x"></i> More
                 </li>
                 <li className="sidebarlistitem">
-                    <Button>Tweet</Button>
+                    <Button onClick={onClick}>Tweet</Button>
                 </li>
             </ul>
+            <DebugRender/>
         </div>
     )
 }
 
-export default Sidebar
+export default memo(MenuSidebar, equals);

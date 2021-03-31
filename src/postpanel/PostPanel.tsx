@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react';
+import { memo, PropsWithChildren, useContext, useEffect, useState } from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
+import { ServiceContext } from '../services/service-context';
+import DebugRender from '../tools/DebugRender';
 import { IPostPanelProps } from './postpanel-types';
 import './PostPanel.css';
 
-
-const PostPanel = ({serviceContext, user}: IPostPanelProps) => {
-    const { message, postService } = serviceContext;
+const PostPanel = ({controlid, user}: IPostPanelProps) => {
+    const { postService } = useContext(ServiceContext);
 
     useEffect(() => {    
         // postService.getByUserId("1");
@@ -17,7 +18,7 @@ const PostPanel = ({serviceContext, user}: IPostPanelProps) => {
                 <li className="postpanellistitem">
                     <Container>
                         <Row>
-                            <Col sm={11}>Latest Tweeze</Col>
+                            <Col sm={11}>Latest Tweeze, postService test: {postService.toString()} </Col>
                             <Col sm={1}>
                                 <i className="fas fa-splotch fa-2x"></i>
                             </Col>
@@ -34,6 +35,7 @@ const PostPanel = ({serviceContext, user}: IPostPanelProps) => {
                                 Card Subtitle
                             </Card.Subtitle>
                             <Card.Text>
+                                userid: {user.id} 
                                 Some quick example text to build on the card's
                                 title and make up the bulk of the card's
                                 content.
@@ -63,8 +65,15 @@ const PostPanel = ({serviceContext, user}: IPostPanelProps) => {
                     </Card>
                 </li>
             </ul>
+            <DebugRender/>
         </div>
     )
 }
 
-export default PostPanel
+const equals = (prevProps: Readonly<PropsWithChildren<IPostPanelProps>>, 
+    nextProps: Readonly<PropsWithChildren<IPostPanelProps>>) => {
+        return prevProps.controlid === nextProps.controlid;
+}
+
+// export default memo(PostPanel, equals);
+export default memo(PostPanel);
