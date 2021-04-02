@@ -1,10 +1,10 @@
-import { IServiceContext } from "../services/service-context";
+import { IServiceContext } from "../services/service-context"
 
 export interface IWidgetSidebarProps {
-    serviceContext: IServiceContext
+	serviceContext: IServiceContext
 }
 
 export interface IMenuSidebarProps {
-    onMenuCallback:any,
-    controlid: number
+	onMenuCallback:any,
+	controlid: number
 }
