@@ -3,6 +3,16 @@
     padding: 1rem;
 }
 
-.sidebarlistitem {
+.sidebarlist-item {
     min-height: 7vh;
+}
+
+.sidebarlist-item-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.sidebarlist-item-container-cell-icon {
+	width: 10%;
+	margin-right: 10px;
 }

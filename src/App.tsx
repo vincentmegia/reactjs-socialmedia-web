@@ -1,21 +1,13 @@
-import React, { PropsWithChildren, useState } from "react"
-import "./App.css"
-import "bootstrap/dist/css/bootstrap.min.css"
-import "@fortawesome/fontawesome-free/css/all.min.css"
+import React, { useState } from "react"
+// import "App.css"
 import PostPanel from "./postpanel/PostPanel"
 import { Col, Container, Row } from "react-bootstrap"
 import MenuSidebar from "./sidebar/MenuSidebar"
 import WidgetSidebar from "./sidebar/WidgetSidebar"
 import { serviceContext, ServiceContext } from "./services/service-context"
-import { IUser, User } from "./models/user"
-import {
-	BrowserRouter as Router,
-	Route,
-	Switch
-} from "react-router-dom"
-import About from "./about/About"
+import { User } from "./models/user"
+import { BrowserRouter as Router } from "react-router-dom"
 import DebugRender from "./tools/DebugRender"
-
 
 
 const App = () => {
@@ -47,11 +39,6 @@ const App = () => {
 					</Row>
 				</Container>
 			</ServiceContext.Provider>
-
-			<Switch>
-				<Route path="/:id" children={<About />} />
-				{/* <Route path="/home/:body" children={<About1/>} /> */}
-			</Switch>
 			<DebugRender />
 		</Router>
 	)
