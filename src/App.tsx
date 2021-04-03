@@ -1,7 +1,5 @@
 import React, { useState } from "react"
 import "./App.css"
-import "bootstrap/dist/css/bootstrap.css"
-import "@fortawesome/fontawesome-free/css/all.css"
 import PostPanel from "./postpanel/PostPanel"
 import { Col, Container, Row } from "react-bootstrap"
 import MenuSidebar from "./sidebar/MenuSidebar"
@@ -12,6 +10,7 @@ import {
 	BrowserRouter as Router
 } from "react-router-dom"
 import DebugRender from "./tools/DebugRender"
+// import "@fortawesome/fontawesome-free/css/all.css"
 
 
 
