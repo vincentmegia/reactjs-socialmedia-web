@@ -22,6 +22,11 @@ module.exports = {
     module: {
         rules: [
 			{
+				test: /\.(js)$/,
+				exclude: /node_modules/,
+				use: ["babel-loader"]
+			},
+			{
 				test: /\.(ts|tsx)$/,
 				exclude: /node_modules/,
 				use: [ "ts-loader" ]
@@ -43,7 +48,19 @@ module.exports = {
 					MiniCssExtractPlugin.loader, 
 					// "style-loader",
 					"css-loader", 
-					"postcss-loader", 
+					{
+						loader: "postcss-loader",
+						options: {
+						  postcssOptions: {
+							plugins: [
+							  [
+								require("precss"),
+								require("autoprefixer")
+							  ]
+							]
+						  }
+						}
+					},
 					"sass-loader"]
 			},
 			{
