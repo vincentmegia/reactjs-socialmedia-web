@@ -21,6 +21,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+		"@typescript-eslint/rulename": "error",
         "indent": [
             "error",
             "tab"
