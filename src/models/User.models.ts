@@ -31,3 +31,5 @@ export class User implements IUser {
 	public get lastname() { return this._lastname }
 	public get firstname() { return this._firstname }
 }
+
+export default User;

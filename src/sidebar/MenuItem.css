@@ -1,0 +1,39 @@
+.sidebarlist-item-container{
+    min-height: 7vh;
+	height: 100%;
+	/* background-color: red; */
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 10px 10px 10px 10px;
+}
+
+.sidebarlist-item {
+	display: flex;
+	flex-direction: row;	
+	justify-content: space-between;
+	/* background-color: yellow; */
+}
+
+.sidebarlist-item-container-cell-icon {
+	width: 40px;
+	margin-right: 10px;
+}
+
+ul.sidebarlist li:hover {
+	background-color: bisque;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+ul.sidebarlist li:last-child:hover {
+	background-color: white;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+ul.sidebarlist li:first-child:hover {
+	background-color: white;
+	cursor: default;
+	border-radius: 10px;
+}

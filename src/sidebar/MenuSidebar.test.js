@@ -2,7 +2,7 @@ import React from "react"
 import { shallow } from "enzyme"
 import MenuSidebar from "./MenuSidebar"
 import renderer from "react-test-renderer"
-import { getMenuItems } from "./Service"
+import { getMenuItems } from "./MenuSidebar.service"
 
 
 jest.mock('./Service', () => {

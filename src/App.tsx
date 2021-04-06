@@ -1,11 +1,10 @@
 import React, { useCallback, useState } from "react"
 // import "App.css"
-import PostPanel from "./postpanel/PostPanel"
+import PostPanel from "./postpanel/PostList"
 import { Col, Container, Row } from "react-bootstrap"
 import MenuSidebar from "./sidebar/MenuSidebar"
 import WidgetSidebar from "./sidebar/WidgetSidebar"
-import { serviceContext, ServiceContext } from "./services/service-context"
-import { User } from "./models/user"
+import { User } from "./models/User.models"
 import { BrowserRouter as Router } from "react-router-dom"
 import DebugRender from "./tools/DebugRender"
 
@@ -20,25 +19,23 @@ const App = () => {
 
 	return (
 		<Router>
-			<ServiceContext.Provider value={serviceContext}>
-				<Container fluid>
-					<Row xl={12}>
-						<Col xs={{ span: 3, offset: 1 }}>
-							<MenuSidebar
-								controlid={1}
-								onMenuCallback={onMenuEvent} />
-						</Col>
-						<Col xl={5}>
-							<PostPanel
-								controlid={2}
-								user={user} />
-						</Col>
-						<Col>
-							<WidgetSidebar />
-						</Col>
-					</Row>
-				</Container>
-			</ServiceContext.Provider>
+			<Container fluid>
+				<Row xl={12}>
+					<Col xs={{ span: 3, offset: 1 }}>
+						<MenuSidebar
+							controlid={1}
+							onMenuCallback={onMenuEvent} />
+					</Col>
+					<Col xl={5}>
+						<PostPanel
+							controlid={2}
+							user={user} />
+					</Col>
+					<Col>
+						<WidgetSidebar />
+					</Col>
+				</Row>
+			</Container>
 			<DebugRender />
 		</Router>
 	)

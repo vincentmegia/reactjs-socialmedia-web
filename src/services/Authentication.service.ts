@@ -1,4 +1,4 @@
-import { IUser, User } from "./../models/user";
+import User, { IUser } from "../models/User.models";
 
 export interface IAuthenticationService {
     getUser(username: string): IUser

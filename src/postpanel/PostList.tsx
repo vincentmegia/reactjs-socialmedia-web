@@ -1,13 +1,10 @@
 import React, { memo, PropsWithChildren, useContext, useEffect } from "react"
 import { Card, Col, Container, Row } from "react-bootstrap"
-import { ServiceContext } from "../services/service-context"
 import DebugRender from "../tools/DebugRender"
 import { IPostPanelProps } from "./postpanel-types"
 import "./PostPanel.css"
 
 const PostPanel = ({ controlid, user }: IPostPanelProps) => {
-	const { postService } = useContext(ServiceContext)
-
 	useEffect(() => {
 		// postService.getByUserId("1")
 	})
@@ -18,7 +15,7 @@ const PostPanel = ({ controlid, user }: IPostPanelProps) => {
 				<li className="postpanellistitem">
 					<Container>
 						<Row>
-							<Col sm={11}>Latest Tweeze, postService test: {postService.toString()} </Col>
+							<Col sm={11}>Latest Tweeze, postService test: </Col>
 							<Col sm={1}>
 								<i className="fas fa-splotch fa-2x"></i>
 							</Col>

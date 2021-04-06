@@ -1,5 +1,4 @@
-import { IUser } from './../models/user';
-import { IServiceContext } from '../services/service-context';
+import { IUser } from '../models/User.models';
 
 export interface IPost {
     title: string;

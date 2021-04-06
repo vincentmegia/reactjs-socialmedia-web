@@ -1,7 +1,7 @@
 import React from "react"
 import { shallow } from "enzyme"
-import PostPanel from "./PostPanel"
-import { User } from "../models/user"
+import PostPanel from "./PostList"
+import { User } from "../models/User.models"
 
 describe("Postpanel test group", () => {
 	test("Postpanel test #1", () => {

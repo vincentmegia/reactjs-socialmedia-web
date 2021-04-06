@@ -1,4 +1,4 @@
-import { IPost } from "./../postpanel/postpanel-types"
+import { IPost } from "../postpanel/postpanel-types"
 
 export interface IPostService {
 	getByUserId(userId: string): IPost[] 

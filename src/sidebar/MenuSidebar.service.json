@@ -7,7 +7,6 @@
 		{ "className": "fas fa-bookmark", "menuText": "Bookmarks" },
 		{ "className": "fas fa-list", "menuText": "List" },
 		{ "className": "fas fa-user", "menuText": "Profile" },
-		{ "className": "fas fa-ellipsis-h", "menuText": "More" },
-		{ "className": "fas fa-ellipsis-h", "children": "button" }
+		{ "className": "fas fa-ellipsis-h", "menuText": "More" }
 	]
 }
