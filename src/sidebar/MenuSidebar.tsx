@@ -1,9 +1,10 @@
-import React, { memo, PropsWithChildren } from "react"
-import { Button, Container } from "react-bootstrap"
+import React, { memo, MouseEventHandler, PropsWithChildren, useCallback, useMemo } from "react"
 import DebugRender from "../tools/DebugRender"
 import "./MenuSidebar.css"
 import { IMenuSidebarProps } from "./widgetsidebar-types"
 import { v4 as uuidv4 } from 'uuid';
+import { IMenuItem, getMenuItems } from "./MenuSidebar.service";
+import { Button } from "react-bootstrap";
 
 const equals = (prevProps: Readonly<PropsWithChildren<IMenuSidebarProps>>,
 	nextProps: Readonly<PropsWithChildren<IMenuSidebarProps>>) => {
@@ -11,41 +12,61 @@ const equals = (prevProps: Readonly<PropsWithChildren<IMenuSidebarProps>>,
 }
 
 interface IMenuItemProps {
-	className: string
+	className?: string
 	menuText?: string
+	children?: any
+	onItemClick?: any
 }
 
-const MenuItem = ({className, menuText}: IMenuItemProps) => {
-	return <li className="sidebarlist-item">
-		<div className="sidebarlist-item-container">
-			<div className="sidebarlist-item-container-cell-icon"><i className={`${className} fa-2x`}/></div>
-			<div>{menuText ?? ""}</div>
-		</div>
+/**
+ * Needs improvement later
+ * @param name 
+ * @param text 
+ * @returns 
+ */
+const elementFactory = (name: string, text: string) => {
+	let element = null;
+	switch(name) {
+		case "button":
+			element = <Button>{text}</Button>
+			break;
+	}
+	return element
+}
+
+const MenuItem = ({className, menuText, children, onItemClick}: IMenuItemProps) => {
+	const normal = <div className="sidebarlist-item">
+		<div className="sidebarlist-item-container-cell-icon">
+			<i className={`${className} fa-2x`}/></div>
+		<div>{menuText ?? ""}</div>
+	</div>
+	const element = elementFactory(children, "Tweet");
+	debugger;
+	return <li className="sidebarlist-item-container"
+				onClick={onItemClick}>
+		{element ?? normal}
 	</li>
 }
 
+
 const MenuSidebar = ({ controlid, onMenuCallback }: IMenuSidebarProps) => {
-	const onClick = (e: any) => onMenuCallback("sdfsd")
-	const items = [
-		{ className: "fab fa-earlybirds" },
-		{ className: "fas fa-house-user", menuText: "Home" },
-		{ className: "fas fa-hashtag", menuText: "Notifications" },
-		{ className: "fas fa-hashtag", menuText: "Messagers" },
-		{ className: "fas fa-bookmark", menuText: "Bookmarks" },
-		{ className: "fas fa-list", menuText: "List" },
-		{ className: "fas fa-user", menuText: "Profile" },
-		{ className: "fas fa-ellipsis-h", menuText: "More" },
-		{ className: "fas fa-ellipsis-h", children: <Button onClick={onClick}>Tweet</Button> }
-	]
+	const onItemClick = useCallback((event: React.MouseEvent<HTMLLIElement, MouseEvent>) =>{
+		console.log(new Date().getMilliseconds())
+	}, [controlid])
+
+	const items = getMenuItems();
+	console.log(items)
 
 	return (
-		<div id="menu-sidebar" style={{ backgroundColor: "red" }}>
+		<div id="menu-sidebar">
 			<ul className="sidebarlist">
 				{
-					items.map(item => <MenuItem
+					items.map((item: IMenuItem) => <MenuItem
 						key={uuidv4()}
 						className={item.className} 
-						menuText={item.menuText} />)
+						menuText={item.menuText}
+						children={item.children}
+						onItemClick={onItemClick} />)
 				}
 			</ul>
 			<DebugRender />

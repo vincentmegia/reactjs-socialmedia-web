@@ -3,16 +3,28 @@
     padding: 1rem;
 }
 
-.sidebarlist-item {
+.sidebarlist-item-container{
     min-height: 7vh;
-}
-
-.sidebarlist-item-container {
+	height: 100%;
+	/* background-color: red; */
 	display: flex;
 	flex-direction: row;
+	align-items: center;
+}
+
+.sidebarlist-item {
+	display: flex;
+	flex-direction: row;	
+	justify-content: space-between;
+	/* background-color: yellow; */
 }
 
 .sidebarlist-item-container-cell-icon {
-	width: 10%;
+	width: 40px;
 	margin-right: 10px;
+}
+
+ul.sidebarlist li:hover {
+	background-color: bisque;
+	cursor: pointer;
 }
