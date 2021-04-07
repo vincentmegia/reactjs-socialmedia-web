@@ -4,7 +4,8 @@ export interface IMenuItem {
 	className: string
 	menuText?: string
 	children?: any
-	onItemClick?: any
+	onItemClick?: any,
+	url?: string
 }
 
 export const getMenuItems = (): IMenuItem[] => {

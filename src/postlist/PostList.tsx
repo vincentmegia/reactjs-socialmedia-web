@@ -1,16 +1,22 @@
+import "./PostList.css"
 import React, { memo, PropsWithChildren, useContext, useEffect } from "react"
 import { Card, Col, Container, Row } from "react-bootstrap"
+import { IUser } from "../models/User.models"
 import DebugRender from "../tools/DebugRender"
-import { IPostPanelProps } from "./postpanel-types"
-import "./PostPanel.css"
 
-const PostPanel = ({ controlid, user }: IPostPanelProps) => {
+
+export interface IPostPanelProps {
+    controlid: number;
+    user: IUser;
+}
+
+const PostList = ({ controlid, user }: IPostPanelProps) => {
 	useEffect(() => {
 		// postService.getByUserId("1")
 	})
 
 	return (
-		<div id="postpanel" style={{ backgroundColor: "blue" }}>
+		<div id="postlist-container" style={{ backgroundColor: "blue" }}>
 			<ul className="postpanelliststyle">
 				<li className="postpanellistitem">
 					<Container>
@@ -73,4 +79,4 @@ const equals = (prevProps: Readonly<PropsWithChildren<IPostPanelProps>>,
 }
 
 // export default memo(PostPanel, equals)
-export default memo(PostPanel)
+export default memo(PostList)

@@ -26,7 +26,7 @@ const MenuSidebar = ({ controlid, onMenuCallback }: IMenuSidebarProps) => {
 						key={uuidv4()}
 						className={item.className} 
 						menuText={item.menuText}
-						children={item.children}
+						url={item.url}
 						onItemClick={onItemClick} />)
 				}
 				<li className="sidebarlist-item-container empty">
