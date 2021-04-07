@@ -2,11 +2,11 @@
 	"data": [
 		{ "className": "fab fa-earlybirds" },
 		{ "className": "fas fa-house-user", "menuText": "Home", "url": "/" },
-		{ "className": "fas fa-hashtag", "menuText": "Notifications", "url": "/dud" },
-		{ "className": "fas fa-hashtag", "menuText": "Messagers", "url": "/dud" },
-		{ "className": "fas fa-bookmark", "menuText": "Bookmarks", "url": "/dud" },
-		{ "className": "fas fa-list", "menuText": "List", "url": "/dud" },
-		{ "className": "fas fa-user", "menuText": "Profile", "url": "/dud" },
-		{ "className": "fas fa-ellipsis-h", "menuText": "More", "url": "/dud" }
+		{ "className": "fas fa-hashtag", "menuText": "Notifications", "url": "/notifications" },
+		{ "className": "fas fa-hashtag", "menuText": "Messagers", "url": "/messengers" },
+		{ "className": "fas fa-bookmark", "menuText": "Bookmarks", "url": "/bookmarks" },
+		{ "className": "fas fa-list", "menuText": "List", "url": "/list" },
+		{ "className": "fas fa-user", "menuText": "Profile", "url": "/profile" },
+		{ "className": "fas fa-ellipsis-h", "menuText": "More", "url": "/more" }
 	]
 }

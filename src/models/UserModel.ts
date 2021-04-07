@@ -1,23 +1,23 @@
-export interface IUser {
-	id: number
+export interface IUserModel {
+	id: string
 	lastname: string
 	firstname: string
 	username?: string
 	password?: string
 }
 
-export class User implements IUser {
-	private _id: number
+export class UserModel implements IUserModel {
+	private _id: string
 	private _firstname: string
 	private _lastname: string
-	private _username: string
-	private _password: string
+	private _username?: string
+	private _password?: string
 
-	constructor(id: number,
+	constructor(id: string,
 		firstname: string,
 		lastname: string,
-		username: string,
-		password: string) {
+		username?: string,
+		password?: string) {
 		this._id = id
 		this._username = username
 		this._password = password
@@ -32,4 +32,4 @@ export class User implements IUser {
 	public get firstname() { return this._firstname }
 }
 
-export default User;
+export default UserModel;

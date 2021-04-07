@@ -1,8 +1,7 @@
 import "./MenuSidebar.css"
-import React, { memo, PropsWithChildren, useCallback } from "react"
+import React, { memo, PropsWithChildren, useCallback, useEffect, useState } from "react"
 import DebugRender from "../tools/DebugRender"
 import { IMenuSidebarProps } from "./widgetsidebar-types"
-import { v4 as uuidv4 } from 'uuid'
 import { IMenuItem, getMenuItems } from "./MenuSidebar.service"
 import MenuItem from "./MenuItem"
 import { Button } from "react-bootstrap"
@@ -14,16 +13,16 @@ const equals = (prevProps: Readonly<PropsWithChildren<IMenuSidebarProps>>,
 
 
 const MenuSidebar = ({ controlid, onMenuCallback }: IMenuSidebarProps) => {
+	const [items] = useState(getMenuItems())
 	const onItemClick = useCallback((event: React.MouseEvent<HTMLLIElement, MouseEvent>) =>{
-		console.log(new Date().getMilliseconds())
 	}, [controlid])
-	const items = getMenuItems();
+
 	return (
 		<div id="menu-sidebar">
 			<ul className="sidebarlist">
 				{
-					items.map((item: IMenuItem) => <MenuItem
-						key={uuidv4()}
+					items.map((item: IMenuItem, index: number) => <MenuItem
+						key={index}
 						className={item.className} 
 						menuText={item.menuText}
 						url={item.url}
